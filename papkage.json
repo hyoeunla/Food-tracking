@@ -1,0 +1,11 @@
+{
+    "name": "food-tracking",
+    "version": "1.0.0",
+    "description": "식품 생산현황 조회 프로젝트",
+    "main": "index.js",
+    "scripts": {},
+    "dependencies": {
+      "node-fetch": "^2.6.7"
+    }
+  }
+  
