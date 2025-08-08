@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>식품 생산현황 조회</title>
+<link rel="stylesheet" href="/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <h1>식품 생산현황 조회</h1>
+  <div>
+    <input type="text" id="productName" placeholder="품목명 입력 (2글자 이상)" />
+    <button id="searchBtn">검색</button>
+    <button id="resetBtn">초기화</button>
+    <button id="exportBtn">엑셀로 저장</button>
+  </div>
+  <h2>검색 결과</h2>
+  <ul id="resultList"></ul>
+
+  <h2>선택된 품목</h2>
+  <ul id="selectedList"></ul>
+
+  <h2>2024년 생산 횟수</h2>
+  <table border="1" id="table2024">
+    <thead><tr><th>품목명</th><th>생산 횟수</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>2025년 월별 생산 추이</h2>
+  <canvas id="chart2025" width="800" height="400"></canvas>
+
+  <script src="/script.js"></script>
+</body>
+</html>
