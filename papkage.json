@@ -2,7 +2,6 @@
   "name": "food-tracking",
   "version": "1.0.0",
   "engines": {
-    "node": "22.x"
-  },
-  "dependencies": {}
+    "node": "20.x"
+  }
 }
