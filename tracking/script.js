@@ -7,10 +7,11 @@ const searchBtn = document.getElementById("searchBtn");
 const resetBtn = document.getElementById("resetBtn");
 const exportBtn = document.getElementById("exportBtn");
 
+const pageSize = 100;
+
 let allProducts = new Map();
 let selectedProducts = new Set();
 let chart = null;
-const pageSize = 100;
 
 searchBtn.addEventListener("click", searchProduct);
 searchInput.addEventListener("keypress", e => {
@@ -33,17 +34,20 @@ function resetAll() {
 async function fetchPage(productName, startIdx) {
   const endIdx = startIdx + pageSize - 1;
   const url = `/api/search?productName=${encodeURIComponent(productName)}&startIdx=${startIdx}&endIdx=${endIdx}`;
+
   try {
     const res = await fetch(url);
+
     if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.error || "서버 호출 오류");
+      const errorText = await res.text();
+      throw new Error(`API 호출 실패: ${errorText}`);
     }
+
     const data = await res.json();
     return data.I0320?.row || [];
   } catch (err) {
     console.error("API 호출 오류:", err);
-    alert(err.message || "서버 호출 중 오류가 발생했습니다.");
+    alert("API 호출 중 오류가 발생했습니다: " + err.message);
     return [];
   }
 }

@@ -1,8 +1,10 @@
 {
-    "rewrites": [
-      { "source": "/", "destination": "/tracking/index.html" },
-      { "source": "/style.css", "destination": "/tracking/style.css" },
-      { "source": "/script.js", "destination": "/tracking/script.js" }
-    ]
-  }
-  
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/tracking/$1" }
+  ]
+}
